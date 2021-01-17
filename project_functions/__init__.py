@@ -139,3 +139,113 @@ def third_cancer_count(x):
         return 1
     else:
         return 0
+
+
+def plotting_counts(df, col, target='depression'):
+    '''
+    Generates countplot on a column in a dataframe.
+    
+    Args:
+        df (dataframe): Dataframe that contains the column and target to be 
+        plotted
+        col (str): Column name of the data to be plotted against the target
+        target (str): Target column of the dataframe
+        
+    Returns:
+        Count plot figure with bars grouped by the target
+    
+    Example:
+        plotting_counts(data, 'feature_name')
+    '''
+
+    # Sort the column values for plotting
+    order_list = list(df[col].unique())
+    order_list.sort()
+    
+    # Plot the figure
+    fig, ax = plt.subplots(figsize=(16,8))
+    x, y = col, target
+    ax = sns.countplot(x=x, hue=y, data=df, order=order_list)
+
+    # Set labels and title
+    plt.title(f'{col.title()} By Count {target.title()}', 
+              fontdict={'fontsize': 30})
+    plt.xlabel(f'{col.title()}', fontdict={'fontsize': 20})
+    plt.ylabel(f'{target.title()} Count', fontdict={'fontsize': 20})
+    plt.xticks(rotation=75)
+    return fig, ax
+
+
+def plotting_percentages(df, col, target='depression'):
+    '''
+    Generates catplot on a column in a dataframe that shows percentages at the
+    top of each bar.
+    
+    Args:
+        df (dataframe): Dataframe that contains the column and target to be 
+        plotted
+        col (str): Column name of the data to be plotted against the target
+        target (str): Target column of the dataframe
+        
+    Returns:
+        Catplot figure with bars grouped by the target and representing
+        percentages of the entries for each value
+    
+    Example:
+        plotting_percentages(data, 'feature_name')
+    '''
+    
+    x, y = col, target
+    
+    # Temporary dataframe with percentage values
+    temp_df = df.groupby(x)[y].value_counts(normalize=True)
+    temp_df = temp_df.mul(100).rename('percent').reset_index()
+
+    # Sort the column values for plotting    
+    order_list = list(df[col].unique())
+    order_list.sort()
+
+    # Plot the figure
+    sns.set(font_scale=1.5)
+    g = sns.catplot(x=x,y='percent',hue=y,kind='bar',data=temp_df, 
+                    height=8, aspect=2, order=order_list, legend_out=False)
+    g.ax.set_ylim(0,100)
+
+    # Loop through each bar in the graph and add the percentage value    
+    for p in g.ax.patches:
+        txt = str(p.get_height().round(1)) + '%'
+        txt_x = p.get_x() 
+        txt_y = p.get_height()
+        g.ax.text(txt_x,txt_y,txt)
+        
+    # Set labels and title
+    plt.title(f'{col.title()} By Percent {target.title()}', 
+              fontdict={'fontsize': 30})
+    plt.xlabel(f'{col.title()}', fontdict={'fontsize': 20})
+    plt.ylabel(f'{target.title()} Percentage', fontdict={'fontsize': 20})
+    plt.xticks(rotation=75)
+    return g
+
+
+def plot_num_cols(df, col, target='depression'):
+    '''
+    Generates 'boxen' type catplot on a column in a dataframe grouped by target
+    
+    Args:
+        df (dataframe): Dataframe that contains the column and target to be 
+        plotted
+        col (str): Column name of the data to be plotted against the target
+        target (str): Target column of the dataframe
+        
+    Returns:
+        Catplot 'boxen' figure split by the target 
+    
+    Example:
+        plotting_num_cols(data, 'feature_name')
+    '''
+    # Generating the figure
+    g = sns.catplot(x=target, y=col, data=df, kind='boxen', 
+                    height=7, aspect=2)
+
+    # Setting the title
+    plt.suptitle(f'{col.title()} and {target.title()}', fontsize=30, y=1.05)
