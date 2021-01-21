@@ -26,10 +26,17 @@ def glob_concat(path, file_str):
         combined_df = glob_concat(r'File/File', '*.XPT')
     '''
     
+    # Find the files in the folders
     files = glob.glob(os.path.join(path, file_str))
+
+    # Print the files for verification when running the function
     display(files)
+
+    # Combining all the files into a DataFrame
     df_files = [pd.read_sas(file) for file in files]
     combined_df = pd.concat(df_files)
+
+    # Setting the index of the new DataFrame
     combined_df.SEQN = combined_df.SEQN.astype('int64')
     combined_df.set_index('SEQN', verify_integrity=True, inplace=True)
     return combined_df
