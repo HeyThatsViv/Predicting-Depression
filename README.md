@@ -54,7 +54,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 ## Results
 
-![ConfusionMatrix](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Tuned%20Logistic%20Regression.png?token=AQAPWE325XQPDGEURA6T22LABZQTA)
+![ConfusionMatrix](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Tuned%20Logistic%20Regression.png?token=AQAPWE75KSUOA37Q235EXETABZRNA)
 
 - <b>Overall the best model turned out to be the logistic regression.</b> Though many models were more accurate at classifying the not depressed class, the logistic regression was the simplest model that most accurately predicted the depression class while still having good predictions for the not depressed class. Logistic regression was also the simplest model to achieve these results. 
 
@@ -93,7 +93,10 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 
 
-## Recommendations:
+## Repository Structure
 
-More of your own text here
+- <b>README.md:</b> The top level README for reviewers of this project
+- <b>main_notebook.ipynb:</b> narritive documentation of analysis in jupyter notebook
+- <b>PredictingDepressionSlides.pdf:</b> PDF version of project presentation slides
+- <b>Images folder:</b> Contains main visuals for the project
  
