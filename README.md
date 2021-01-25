@@ -4,6 +4,7 @@
 
 The contents of this repository detail an analysis of using machine learning models to predict depression in people using health care data. This analysis is detailed in hopes of making the work accessible and replicable.
 
+![Depression](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Depression.jpg?token=AQAPWEYTF2JJVFR4SJSXHODABZRGM)
 
 ## Abstract
 
