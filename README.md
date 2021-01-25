@@ -99,4 +99,5 @@ The way the data was preprocessed with feature engineering, filling missing valu
 - <b>main_notebook.ipynb:</b> narritive documentation of analysis in jupyter notebook
 - <b>PredictingDepressionSlides.pdf:</b> PDF version of project presentation slides
 - <b>Images folder:</b> Contains main visuals for the project
+- <b>CSVFiles folder:</b> Contains saved CSV files of the cleaned data created in the main_notebook
  
