@@ -53,7 +53,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 ## Results
 
-![ConfusionMatrix](./images/visual1.png)
+![ConfusionMatrix](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Tuned%20Logistic%20Regression.png?token=AQAPWE325XQPDGEURA6T22LABZQTA)
 
 - <b>Overall the best model turned out to be the logistic regression.</b> Though many models were more accurate at classifying the not depressed class, the logistic regression was the simplest model that most accurately predicted the depression class while still having good predictions for the not depressed class. Logistic regression was also the simplest model to achieve these results. 
 
@@ -63,14 +63,18 @@ The way the data was preprocessed with feature engineering, filling missing valu
 ## Recommendations
 
 - <b>Don't use tree based models.</b> Tree based models did not have as good of performance overall as the non-tree models. The XGBoost classifier had the best performance as the base model was actually similar in performance to the non-tree models. But once the XGBoost model was tuned, it got worse.
+
 - <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success.
+
 - <b>Health care professionals should prepare themselves on how to handle mental health problems and push to help patients get the care needed.</b> The beauty of using machine learning is that patients could be given help without having to rely on physicians being aware or trained to catch depression and direct patients to care. But in the mean time, the physician is still handling much of the first line care and should prepare themselves on how to better provide care for patients.
+
 - <b>Everyone should prepare themselves on how to handle mental health problems and to push those they know to get proper help.</b> Help to destigmatize mental health problems and encourage those you know to seek help from experienced professionals. Also get help for yourself if you find yourself in need of it. It's highly likely that everyone will find themselves in need of professional help at some point or another.
 
 
 ## Future Directions
 
 - <b>Try different models.</b> None of these models did particularly well and perhaps trying a different modeling tactic would do the trick like a neural network.
+
 - <b>Add more data.</b> It is desirable to get a well performing model with as little information needed about patients as possible but after modeling options have been exhausted, more data is the best bet for improving performance. Finding the right balance between acceptable amount of error and amount of data needed to have an accurate model is definitely easier said than done.
 
 
@@ -86,14 +90,6 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 5. The PHQ-9: validity of a brief depression severity measure https://pubmed.ncbi.nlm.nih.gov/11556941/
 
-
-#### Visual 1
-![graph1](./images/visual1.png)
-> Sentence about visualization.
-
-#### Visual 2
-![graph2](./images/visual2.png)
-> Sentence about visualization.
 
 
 ## Recommendations:
