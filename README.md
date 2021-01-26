@@ -104,4 +104,5 @@ The way the data was preprocessed with feature engineering, filling missing valu
 - <b>PredictingDepressionSlides.pdf:</b> PDF version of project presentation slides
 - <b>Images folder:</b> Contains main visuals for the project
 - <b>CSVFiles folder:</b> Contains saved CSV files of the cleaned data created in the main_notebook
+- <b>project_functions folder:</b> Contains the custom functions written for use in the main_notebook
  
