@@ -1,10 +1,10 @@
-# Predicting Depression using Health Care Data
+# Predicting Depression Using Health Care Data
 
 **Author**: Vivienne DiFrancesco
 
-The contents of this repository detail an analysis of using machine learning models to predict depression in people using health care data. This analysis is detailed in hopes of making the work accessible and replicable.
+The contents of this repository is an analysis of using machine learning models to predict depression in people using health care data. This analysis is detailed in hopes of making the work accessible and replicable.
 
-![Depression](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Depression.jpg?token=AQAPWEYTF2JJVFR4SJSXHODABZRGM)
+![Depression](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Depression.jpg?token=AQAPWE7MNYJURLAG54DV3RTABZSVK)
 
 ## Abstract
 
@@ -54,7 +54,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 ## Results
 
-![ConfusionMatrix](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Tuned%20Logistic%20Regression.png?token=AQAPWE75KSUOA37Q235EXETABZRNA)
+![ConfusionMatrix](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Tuned%20Logistic%20Regression.png?token=AQAPWE6RX5M2R57RIBYZI7LABZSLQ)
 
 - <b>Overall the best model turned out to be the logistic regression.</b> Though many models were more accurate at classifying the not depressed class, the logistic regression was the simplest model that most accurately predicted the depression class while still having good predictions for the not depressed class. Logistic regression was also the simplest model to achieve these results. 
 
@@ -66,6 +66,8 @@ The way the data was preprocessed with feature engineering, filling missing valu
 - <b>Don't use tree based models.</b> Tree based models did not have as good of performance overall as the non-tree models. The XGBoost classifier had the best performance as the base model was actually similar in performance to the non-tree models. But once the XGBoost model was tuned, it got worse.
 
 - <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success.
+
+- <b>Don't bother using under sampling combined with SMOTE for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but the combination used here of under sampling and SMOTE did worse overall in modeling. Using the balanced classes parameter worked better.
 
 - <b>Health care professionals should prepare themselves on how to handle mental health problems and push to help patients get the care needed.</b> The beauty of using machine learning is that patients could be given help without having to rely on physicians being aware or trained to catch depression and direct patients to care. But in the mean time, the physician is still handling much of the first line care and should prepare themselves on how to better provide care for patients.
 
@@ -90,6 +92,8 @@ The way the data was preprocessed with feature engineering, filling missing valu
 4. Association of Integrated Team-Based Care With Health Care Quality, Utilization, and Cost: https://jamanetwork.com/journals/jama/fullarticle/2545685
 
 5. The PHQ-9: validity of a brief depression severity measure https://pubmed.ncbi.nlm.nih.gov/11556941/
+
+6. Take the PHQ-9 depression screener online: https://www.mdcalc.com/phq-9-patient-health-questionnaire-9
 
 
 

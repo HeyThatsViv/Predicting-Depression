@@ -2,3 +2,4 @@ Data/*
 master_dataset.csv
 main_notebook1.ipynb
 Covid.ipynb
+plotly_figures.ipynb
