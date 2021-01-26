@@ -67,7 +67,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 - <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success.
 
-- <b>Don't bother using under sampling combined with SMOTE for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but the combination used here of under sampling and SMOTE did worse overall in modeling. Using the balanced classes parameter worked better.
+- <b>Don't use under sampling combined with SMOTE for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but the combination used here of under sampling and SMOTE did worse overall in modeling. Using the balanced classes parameter worked better.
 
 - <b>Health care professionals should prepare themselves on how to handle mental health problems and push to help patients get the care needed.</b> The beauty of using machine learning is that patients could be given help without having to rely on physicians being aware or trained to catch depression and direct patients to care. But in the mean time, the physician is still handling much of the first line care and should prepare themselves on how to better provide care for patients.
 
