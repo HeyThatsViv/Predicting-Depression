@@ -12,7 +12,7 @@ Millions of people globally suffer from depression and it is a debilitating cond
 
 There is evidence that an integrated approach where physicians regularly screen patients for mental health disorders and work together with psychologists and other mental health professionals to treat patients leads to reduced costs and better patient outcomes. However, this approach can require a lot of buy-in from many individuals, require extra training, and is often not logistically feasible.
 
-Using data from the CDC National Health and Examination Survey, machine learning was applied to predict patients who may have depression based on typical information found in a medical file. These predictions could be used to put patients in touch with experienced mental health professionals sooner and easier.
+Using data from the CDC National Health and Examination Survey, machine learning was applied to predict patients who may have depression based on information that could typically be found in a medical file. These predictions could be used to put patients in touch with experienced mental health professionals sooner and easier.
 
 The results show that 68% of those who have depression and 81% of those who don't have depression can be correctly identified. Though more work needs to be done to create a more accurate model, this shows proof of concept that this is a realistic prediction task. Better results could be yielded by adding more patient information to the data or testing more types of models.
 
@@ -28,7 +28,7 @@ In a study published in JAMA, doctors looked at patient outcomes, cost of care, 
 
 ## Goal
 
-The goal of this project is to gather data about patients that would typically be in a patient’s medical record to predict depression.
+ The goal of this project is to gather data about people that would typically be in a patient’s medical record to predict depression.
 
 Many clinics or doctors may find it impossible to have such integrated mental health services as cited in the previously mentioned study. Having standard services where patients are constantly screened for mental health disorders and treatment is tightly integrated with teams of physicians and psychological professionals can be expensive, requires a lot of training, requires participation from many individual doctors that may feel too overwhelmed, and may also not be possible in certain areas due to various logistical factors. Using machine learning and data that may otherwise be in a patient’s medical file, the goal is to predict who may have depression in a way that requires very little human participation from doctors and has lower time and money costs associated. The patients who are predicted to have depression could potentially be referred straight to mental health professionals in their area or who accept their health care coverage. The patient’s file could also be flagged to alert the medical staff the next time they have any kind of physician appointment to prompt doctors to start the conversation with patients. At the very least information and resources could be sent to patients directly to encourage them to take action on their own behalf.
 
@@ -37,14 +37,14 @@ Many clinics or doctors may find it impossible to have such integrated mental he
 
 The data for this project is from the Centers for Disease Control and Prevention National health and Nutrition Examination Survey. This data includes a vast array of health data done on a sample of the American population each year and is released every two years. The data can be found at this website: https://wwwn.cdc.gov/nchs/nhanes/default.aspx. 
 
-For this project, data was taken from the years between 2005 and 2018 and comprised of 36259 entries total. Only data that was consistent across years was used and there was effort to only include data that would be reasonably found in a patient's medical file. Using as little data as possible while still being able to have accurate predictions is desirable as it would catch more people who may not have a very deep medical history and also puts less burden on providers to have to capture so much information.
+For this project, data was taken from the years between 2005 and 2018 and comprised of 36259 entries total of U.S. adults. Only data that was consistent across years was used and there was effort to only include data that would be reasonably found in a patient's medical file. Using as little data as possible while still being able to have accurate predictions is desirable as it would catch more people who may not have a very deep medical history and also puts less burden on providers to have to capture so much information.
 
 
 ## Approach
 
 The target was calculated using the PHQ-9 depression screening tool that was asked of all participants in the NHANES data. A study showed that this screening tool has a specificity and sensitivity of 88% for major depression at a threshold score of 10 or more.[5] People were divided into “depressed” and “not depressed” categories based on the score for their answers in the screening tool with a score of 10 or more being “depressed”.
 
-The approach for this project was to create many different model types to see what performs the best and to compare and contrast the different types of models. The modeling effort was done starting with simpler models and moving to more complex models. The OSEMiN process is the overarching structure of this project.
+The approach for this project was to create many different model types to see what performs the best and to compare and contrast the different types of models. The modeling effort was done starting with simpler models and moving to more complex models. The OSEMiN process is the overarching structure of this project. 
 
 
 ## Methods
@@ -60,16 +60,20 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 - <b>The depression class was particularly tricky to classify accurately.</b> Some models were able to accurately identify 95%+ of the true negatives but the highest percentage any models were able to achieve in capturing the true positives was 68%. That is certainly better than guessing and proves that this task is feasible, but more work will need to be done to find the best approach.
 
+- <b>The most influencial features of the best model are shown in the chart below.</b>
+
+![ImportantFeatures]( )
+
 
 ## Recommendations
 
-- <b>Don't use tree based models.</b> Tree based models did not have as good of performance overall as the non-tree models. The XGBoost classifier had the best performance as the base model was actually similar in performance to the non-tree models. But once the XGBoost model was tuned, it got worse.
+- <b>Health care professionals should prepare themselves on how to handle mental health problems and push to help patients get the care needed.</b> The beauty of using machine learning is that patients could be given help without having to rely on physicians being aware or trained to catch depression and direct patients to care. But right now physicians are still handling much of the first line care and should prepare themselves on how to better provide care for patients. The most meaningful features for the model included having memory or emotional problems, lower income, sleep trouble, and not being able to work. It may be helpful for health care professionals to watch for these factors in patients.
+
+- <b>Don't use tree based models.</b> The XGBoost classifier had the best performance as the base model was actually similar in performance to the non-tree models. But once the XGBoost model was tuned, it got worse.
 
 - <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success.
 
 - <b>Don't use under sampling combined with SMOTE for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but the combination used here of under sampling and SMOTE did worse overall in modeling. Using the balanced classes parameter worked better.
-
-- <b>Health care professionals should prepare themselves on how to handle mental health problems and push to help patients get the care needed.</b> The beauty of using machine learning is that patients could be given help without having to rely on physicians being aware or trained to catch depression and direct patients to care. But in the mean time, the physician is still handling much of the first line care and should prepare themselves on how to better provide care for patients.
 
 - <b>Everyone should prepare themselves on how to handle mental health problems and to push those they know to get proper help.</b> Help to destigmatize mental health problems and encourage those you know to seek help from experienced professionals. Also get help for yourself if you find yourself in need of it. It's highly likely that everyone will find themselves in need of professional help at some point or another.
 
@@ -100,9 +104,10 @@ The way the data was preprocessed with feature engineering, filling missing valu
 ## Repository Structure
 
 - <b>README.md:</b> The top level README for reviewers of this project
-- <b>main_notebook.ipynb:</b> narritive documentation of analysis in jupyter notebook
+- <b>first_notebook.ipynb:</b> Beginning narrative documentation of analysis in jupyter notebook up through the data cleaning stages
+- <b>second_notebook.ipynb:</b> Continuation of the narriative documentation that begins after data cleaning at the explore stage of the project
 - <b>PredictingDepressionSlides.pdf:</b> PDF version of project presentation slides
 - <b>Images folder:</b> Contains main visuals for the project
-- <b>CSVFiles folder:</b> Contains saved CSV files of the cleaned data created in the main_notebook
-- <b>project_functions folder:</b> Contains the custom functions written for use in the main_notebook
+- <b>CSVFiles folder:</b> Contains saved CSV files of the cleaned data created in the first_notebook
+- <b>project_functions folder:</b> Contains the custom functions written for use in the first_notebook and second_notebook
  
