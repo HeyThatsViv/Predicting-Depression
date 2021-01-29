@@ -6,6 +6,14 @@ The contents of this repository is an analysis of using machine learning models 
 
 ![Depression](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Depression.jpg?token=AQAPWE7MNYJURLAG54DV3RTABZSVK)
 
+## Repository Structure
+
+- <b>README.md:</b> The top level README for reviewers of this project
+- <b>first_notebook.ipynb:</b> Beginning narrative documentation of analysis in jupyter notebook up through the data cleaning stages
+- <b>second_notebook.ipynb:</b> Continuation of the narriative documentation that begins after data cleaning at the explore stage of the project
+- <b>PredictingDepressionSlides.pdf:</b> PDF version of project presentation slides
+- <b>project_functions folder:</b> Contains the custom functions written for use in the first_notebook and second_notebook
+
 ## Abstract
 
 Millions of people globally suffer from depression and it is a debilitating condition. At best it can be difficult for people to live their lives normally and happily, and at worst it leads to death by suicide. Primary care doctors are overwhelmingly finding that they are faced with the need to treat mental health conditions such as depression without any particular training of how to handle such cases.
@@ -67,8 +75,12 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 ## Recommendations
 
-- <b>Health care professionals should prepare themselves on how to handle mental health problems and push to help patients get the care needed.</b> The beauty of using machine learning is that patients could be given help without having to rely on physicians being aware or trained to catch depression and direct patients to care. But right now physicians are still handling much of the first line care and should prepare themselves on how to better provide care for patients. The most meaningful features for the model included having memory or emotional problems, lower income, sleep trouble, and not being able to work. It may be helpful for health care professionals to watch for these factors in patients.
+- <b>Health care professionals should prepare themselves to help patients with depression and can especially watch out for the most important features from the model.</b> Right now physicians are still handling much of the first line care for patients with depression and should prepare themselves on how to better provide care for these patients. The most meaningful features for the model that providers can watch for included:
+    - Having memory or emotional problems 
+    - Lower income and not being able to work
+    - Trouble sleeping and sleeping too much or too little
 
+    
 - <b>Don't use tree based models.</b> The XGBoost classifier had the best performance as the base model was actually similar in performance to the non-tree models. But once the XGBoost model was tuned, it got worse.
 
 - <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success.
@@ -98,16 +110,3 @@ The way the data was preprocessed with feature engineering, filling missing valu
 5. The PHQ-9: validity of a brief depression severity measure https://pubmed.ncbi.nlm.nih.gov/11556941/
 
 6. Take the PHQ-9 depression screener online: https://www.mdcalc.com/phq-9-patient-health-questionnaire-9
-
-
-
-## Repository Structure
-
-- <b>README.md:</b> The top level README for reviewers of this project
-- <b>first_notebook.ipynb:</b> Beginning narrative documentation of analysis in jupyter notebook up through the data cleaning stages
-- <b>second_notebook.ipynb:</b> Continuation of the narriative documentation that begins after data cleaning at the explore stage of the project
-- <b>PredictingDepressionSlides.pdf:</b> PDF version of project presentation slides
-- <b>Images folder:</b> Contains main visuals for the project
-- <b>CSVFiles folder:</b> Contains saved CSV files of the cleaned data created in the first_notebook
-- <b>project_functions folder:</b> Contains the custom functions written for use in the first_notebook and second_notebook
- 
