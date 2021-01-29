@@ -27,11 +27,11 @@ The results show that 68% of those who have depression and 81% of those who don'
 
 ## Introduction
 
-According to the World Health Organization, more that 264 million people globally have depression. Many suicides each year are caused by depression with suicide being among the leading causes of death for young people especially.[1] The National Institute of Mental Health found that the prevalence of a major depressive episode among U.S. adults in 2017 was 7.1% of people with young adults being the most affected.[2]
+According to the World Health Organization, more that 264 million people globally have depression. Many suicides each year are caused by depression with suicide being among the leading causes of death for young people especially.[1](https://www.who.int/news-room/fact-sheets/detail/depression) The National Institute of Mental Health found that the prevalence of a major depressive episode among U.S. adults in 2017 was 7.1% of people with young adults being the most affected.[2](https://www.nimh.nih.gov/health/statistics/major-depression.shtml) 
 
-The American Psychological Association identified that primary care physicians are often being asked to diagnose mental disorders such as depression without adequate training on how to handle such treatments. According to their numbers, 70% of primary care visits are because of patients’ psychological problems, more than 80% of patients who have symptoms with no diagnosis receive psychological treatment by a physician, and only 10% follow up to a mental health professional. Patients are not getting the care they desperately need as 70% of individuals with depression go undiagnosed. Among people who commit suicide, 90% of people had a mental disorder and 40% of people had visited their doctor within the last month.[3]
+The American Psychological Association identified that primary care physicians are often being asked to diagnose mental disorders such as depression without adequate training on how to handle such treatments. According to their numbers, 70% of primary care visits are because of patients’ psychological problems,  more than 80% of patients who have symptoms with no diagnosis receive psychological treatment by a physician, and only 10% follow up to a mental health professional. Patients are not getting the care they desperately need as 70% of individuals with depression go undiagnosed. Among people who commit suicide, 90% of people had a mental disorder and 40% of people had visited their doctor within the last month.[3](https://www.apa.org/health/briefs/primary-care.pdf)
 
-In a study published in JAMA, doctors looked at patient outcomes, cost of care, and other factors between patients that were provided more overt diagnosing and treatment for mental health at standard doctor appointments versus patients that were not. They found that for patients that receive mental health intervention, costs went down, health care services were better utilized, patient outcomes improved, primary care doctor visits declined, treatment interventions were started earlier, and hospital and emergency care visits declined.[4]
+In a study published in JAMA, doctors looked at patient outcomes, cost of care, and other factors between patients that were provided more overt diagnosing and treatment for mental health at standard doctor appointments versus patients that were not. They found that for patients that receive mental health intervention, costs went down, health care services were better utilized, patient outcomes improved, primary care doctor visits declined, treatment interventions were started earlier, and hospital and emergency care visits declined.[4](https://jamanetwork.com/journals/jama/fullarticle/2545685)
 
 
 ## Goal
@@ -50,7 +50,7 @@ For this project, data was taken from the years between 2005 and 2018 and compri
 
 ## Approach
 
-The target was calculated using the PHQ-9 depression screening tool that was asked of all participants in the NHANES data. A study showed that this screening tool has a specificity and sensitivity of 88% for major depression at a threshold score of 10 or more.[5] People were divided into “depressed” and “not depressed” categories based on the score for their answers in the screening tool with a score of 10 or more being “depressed”.
+The target was calculated using the PHQ-9 depression screening tool that was asked of all participants in the NHANES data. A study showed that this screening tool has a specificity and sensitivity of 88% for major depression at a threshold score of 10 or more.[5](https://pubmed.ncbi.nlm.nih.gov/11556941/) People were divided into “depressed” and “not depressed” categories based on the score for their answers in the screening tool with a score of 10 or more being “depressed”.
 
 The approach for this project was to create many different model types to see what performs the best and to compare and contrast the different types of models. The modeling effort was done starting with simpler models and moving to more complex models. The OSEMiN process is the overarching structure of this project. 
 
@@ -80,7 +80,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
     - Lower income and not being able to work
     - Trouble sleeping and sleeping too much or too little
 
-    
+
 - <b>Don't use tree based models.</b> The XGBoost classifier had the best performance as the base model was actually similar in performance to the non-tree models. But once the XGBoost model was tuned, it got worse.
 
 - <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success.
