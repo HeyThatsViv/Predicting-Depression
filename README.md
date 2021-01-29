@@ -62,7 +62,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 - <b>The most influencial features of the best model are shown in the chart below.</b>
 
-![ImportantFeatures]( )
+![ImportantFeatures](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Most%20Important%20Features.png)
 
 
 ## Recommendations
