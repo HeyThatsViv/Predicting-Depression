@@ -13,6 +13,7 @@ The contents of this repository is an analysis of using machine learning models 
 - <b>second_notebook.ipynb:</b> Continuation of the narriative documentation that begins after data cleaning at the explore stage of the project
 - <b>PredictingDepressionSlides.pdf:</b> PDF version of project presentation slides
 - <b>project_functions folder:</b> Contains the custom functions written for use in the first_notebook and second_notebook
+- <b>DashboardApp folder:</b> Contains files for the creation of the dashboard app for exploring the data of this project
 
 ## Abstract
 
