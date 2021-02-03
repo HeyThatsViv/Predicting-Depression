@@ -14,14 +14,14 @@ st.set_page_config(page_title='Examining Depression Using Health Care Data', pag
 st.markdown("<h1 style='text-align: center'>Examining Depression Using Health Care Data</h1><hr style='height:2px;border-width:0;color:gray;background-color:gray'>", unsafe_allow_html=True)
 
 # Putting in personal details with some styling
-st.markdown("<body style='text-align: center'> <b>Created by Vivienne DiFrancesco</b><br>- viviennedifrancesco@gmail.com<br><a href=https://github.com/AnyOldRandomNameWillDOo/Capstone-Project>- Project repository on GitHub</a><hr style='height:2px;border-width:0;color:gray;background-color:gray'></body>", unsafe_allow_html=True)
+st.markdown("<body style='text-align: center'> <b>Created by Vivienne DiFrancesco</b><br>- viviennedifrancesco@gmail.com<br><a href=https://github.com/HeyThatsViv/Predicting-Depression-Using-Health-Care-Data>- Project repository on GitHub</a><hr style='height:2px;border-width:0;color:gray;background-color:gray'></body>", unsafe_allow_html=True)
 
 # Project information
 st.header('Introduction')
 st.markdown('Millions of people globally suffer from depression and it is a debilitating condition. At best it can be difficult for people to live their lives normally and happily, and at worst it leads to death by suicide. Primary care doctors are overwhelmingly finding that they are faced with the need to treat mental health conditions such as depression without any particular training of how to handle such cases.')
 st.markdown('There is evidence that an integrated approach where physicians regularly screen patients for mental health disorders and work together with psychologists and other mental health professionals to treat patients leads to reduced costs and better patient outcomes. However, this approach can require a lot of buy-in from many individuals, require extra training, and is often not logistically feasible.')
 st.markdown('Using data from the [CDC National Health and Examination Survey](https://wwwn.cdc.gov/nchs/nhanes/default.aspx), machine learning was applied to predict patients who may have depression based on information that could typically be found in a medical file. These predictions could be used to put patients in touch with experienced mental health professionals sooner and easier.')
-st.markdown("This dashboard provides an interactive tool for users to explore more of the data from the machine learning project. It is meant to be a companion piece to the larger project which can be found [here](https://github.com/AnyOldRandomNameWillDOo/Capstone-Project). These plots are interactive with hover text and zooming capabilities. The figures may take a moment to update when changed.<hr style='height:2px;border-width:0;color:gray;background-color:gray'>", unsafe_allow_html=True)
+st.markdown("This dashboard provides an interactive tool for users to explore more of the data from the machine learning project. It is meant to be a companion piece to the larger project which can be found [here](https://github.com/HeyThatsViv/Predicting-Depression-Using-Health-Care-Data). These plots are interactive with hover text and zooming capabilities. The figures may take a moment to update when changed.<hr style='height:2px;border-width:0;color:gray;background-color:gray'>", unsafe_allow_html=True)
 
 # Add the data
 df = pd.read_csv('StreamlitData.csv')

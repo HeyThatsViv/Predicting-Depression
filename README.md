@@ -2,11 +2,11 @@
 
 **Author**: Vivienne DiFrancesco
 
-<b> A companion dashboard for exploring the data used in this project can be found [here](https://share.streamlit.io/anyoldrandomnamewilldoo/capstone-project/main/Dashboard/depression_app.py)</b>
+<b> A companion dashboard for exploring the data used in this project can be found [here](https://share.streamlit.io/heythatsviv/predicting-depression-using-health-care-data/main/Dashboard/depression_app.py)</b>
 
 The contents of this repository is an analysis of using machine learning models to predict depression in people using health care data. This analysis is detailed in hopes of making the work accessible and replicable.
 
-![Depression](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Depression.jpg?token=AQAPWE7MNYJURLAG54DV3RTABZSVK)
+![Depression](https://raw.githubusercontent.com/HeyThatsViv/Predicting-Depression-Using-Health-Care-Data/main/Images/Depression.jpg)
 
 ## Repository Structure
 
@@ -65,7 +65,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 ## Results
 
-![ConfusionMatrix](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Tuned%20Logistic%20Regression.png?token=AQAPWE6RX5M2R57RIBYZI7LABZSLQ)
+![ConfusionMatrix](https://raw.githubusercontent.com/HeyThatsViv/Predicting-Depression-Using-Health-Care-Data/main/Images/Tuned%20Logistic%20Regression.png)
 
 - <b>Overall the best model turned out to be the logistic regression.</b> Though many models were more accurate at classifying the not depressed class, the logistic regression was the simplest model that most accurately predicted the depression class while still having good predictions for the not depressed class. Logistic regression was also the simplest model to achieve these results. 
 
@@ -73,7 +73,7 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 - <b>The most influencial features of the best model are shown in the chart below.</b>
 
-![ImportantFeatures](https://raw.githubusercontent.com/AnyOldRandomNameWillDOo/Capstone-Project/main/Images/Most%20Important%20Features.png)
+![ImportantFeatures](https://raw.githubusercontent.com/HeyThatsViv/Predicting-Depression-Using-Health-Care-Data/main/Images/Most%20Important%20Features.png)
 
 
 ## Recommendations
