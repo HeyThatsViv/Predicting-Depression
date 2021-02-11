@@ -333,7 +333,7 @@ def plot_confusion_matrix(model, X, y, title=''):
     return fig
 
 
-def plot_precision_recall_curve(model, xtest, ytest, title=''):
+def plot_roc_curve(model, xtest, ytest, title=''):
     '''
     Plots the precision-recall curve for a model
     
@@ -343,17 +343,17 @@ def plot_precision_recall_curve(model, xtest, ytest, title=''):
         ytest (series or array): target column of the test set
         
     Returns:
-        Plotted figure of precision recall curve for the model
+        Plotted figure of ROC curve for the model
     
     Example:
-        plot_precision_recall_curve(classification_model, X_test, y_test)
+        plot_roc_curve(classification_model, X_test, y_test)
     '''
     # Creating the plot
     fig, ax = plt.subplots(figsize=(8,6), ncols=1)
-    roc_plot = metrics.plot_precision_recall_curve(model, xtest, ytest, ax=ax)
+    roc_plot = metrics.plot_roc_curve(model, xtest, ytest, ax=ax)
 
     # Setting the title of the plot
-    ax.set_title(f'Precision-Recall Curve For {title}', 
+    ax.set_title(f'ROC Curve For {title}', 
                  fontdict={'fontsize':17})
 
     # Setting a legend for the plot
@@ -392,7 +392,7 @@ def plot_top_features(model, xtrain, title=''):
 def evaluate_model(model, xtrain, xtest, ytest, tree=False, title=''):
     '''
     Runs all the evaluation functions on a model including the classification 
-    report, confusion matrix, precision-recall plot, and a top features plot if the 
+    report, confusion matrix, ROC plot, and a top features plot if the 
     model is tree based.
     
     Args:
@@ -415,7 +415,7 @@ def evaluate_model(model, xtrain, xtest, ytest, tree=False, title=''):
     
     make_classification_report(model, ytest, xtest, title=title)
     plot_confusion_matrix(model, xtest, ytest, title=title)
-    plot_precision_recall_curve(model, xtest, ytest, title=title)
+    plot_roc_curve(model, xtest, ytest, title=title)
     
     # Feature importance can only be run on tree based models
     if tree:
