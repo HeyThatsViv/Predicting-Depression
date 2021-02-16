@@ -88,14 +88,14 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 - <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success. The dataset could be improved with more entries as well as more features.
 
-- <b>Don't use SMOTENC or under sampling combined with SMOTENC for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but first using just SMOTENC was tried and then under sampling combined with SMOTENC was tried and both methods performed worse than the original imbalanced dataset combined with the class weight parameter.
+- <b>Don't use SMOTENC or under sampling combined with SMOTENC for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but first using just SMOTENC was tried and then under sampling combined with SMOTENC was tried and both methods performed worse than the original imbalanced dataset combined with the class weight parameter. These pieces of the project were removed from the notebook narrative for brevity but it should be noted that they were attempted for the benefit of others looking to spin-off this work.
 
 - <b>Everyone should prepare themselves on how to handle mental health problems and to push those they know to get proper help.</b> Help to destigmatize mental health problems and encourage those you know to seek help from experienced professionals. Also get help for yourself if you find yourself in need of it. It's highly likely that everyone will find themselves in need of professional help at some point or another.
 
 
 ## Future Directions
 
-- <b>Try different models.</b> Predicting depression is a complex and multidimensional problem so it is not surprising that it is difficult to model. Perhaps exploring more models could reveal a strategy that was just right for this task. A neural network, for example, could open up a huge range of possibilities that have not been explored in this project. The downside of neural networks is of course the lack of transparency is what features the model is using to make predictions.
+- <b>Try different models.</b> Predicting depression is a complex and multidimensional problem so it is not surprising that it is difficult to model. Perhaps exploring more model types could reveal a strategy that was just right for this task. A neural network, for example, could open up a huge range of possibilities that have not been explored in this project. The downside of neural networks is of course the lack of transparency in what features the model is using to make predictions.
 
 - <b>Add more data.</b> It is desirable to get a well performing model with as little information needed about patients as possible but after modeling options have been exhausted, more data is the best bet for improving performance. Finding the right balance between acceptable amount of error and amount of data needed to have an accurate model is definitely easier said than done.
 
