@@ -25,7 +25,7 @@ There is evidence that an integrated approach where physicians regularly screen 
 
 Using data from the CDC National Health and Examination Survey, machine learning was applied to predict patients who may have depression based on information that could typically be found in a medical file. These predictions could be used to put patients in touch with experienced mental health professionals sooner and easier.
 
-The results show that 68% of those who have depression and 81% of those who don't have depression can be correctly identified. Though more work needs to be done to create a more accurate model, this shows proof of concept that this is a realistic prediction task. Better results could be yielded by adding more patient information to the data or testing more types of models.
+The results show that 71% of those who have depression and 80% of those who don't have depression can be correctly identified. Though more work needs to be done to create a more accurate model, this shows proof of concept that this is a realistic prediction task. Better results could be yielded by adding more patient information to the data or testing more types of models.
 
 
 ## Introduction
@@ -60,16 +60,16 @@ The approach for this project was to create many different model types to see wh
 
 ## Methods
 
-The way the data was preprocessed with feature engineering, filling missing values, and scaling was done with the goal of increasing accuracy of the models. Undersampling and oversampling techniques were used in conjunction with each other to create a dataset with balanced classes to test against the unbalanced and non-resampled dataset. For each type of model, a model was first trained and fitted with default parameters as a base. Then, key parameters were chosen to tune using sklearn GridSearchCV and the best parameters were used to run the model. Finally, the tuned parameters were used to fit the same model using the resampled data for comparison. Performance was compared to the base model of each type, as well as between different model types. 
+The way the data was preprocessed with feature engineering, filling missing values, and scaling was done with the goal of increasing accuracy of the models. For each type of model, a model was first trained and fitted with default parameters as a base. Then, key parameters were chosen to tune using sklearn GridSearchCV and the best parameters were used to run the model. Finally, the tuned parameters were used to fit the same model using the resampled data for comparison. Performance was compared to the base model of each type, as well as between different model types. An F-beta score was used as the scoring metric for this project and models were evaluated using a classification report, a confusion matrix, and an ROCAUC plot.
 
 
 ## Results
 
-![ConfusionMatrix](https://raw.githubusercontent.com/HeyThatsViv/Predicting-Depression-Using-Health-Care-Data/main/Images/Tuned%20Logistic%20Regression.png)
+![ConfusionMatrix](https://raw.githubusercontent.com/HeyThatsViv/Predicting-Depression-Using-Health-Care-Data/main/Images/Tuned%20SGD%20Linear%20Model.png)
 
-- <b>Overall the best model turned out to be the logistic regression.</b> Though many models were more accurate at classifying the not depressed class, the logistic regression was the simplest model that most accurately predicted the depression class while still having good predictions for the not depressed class. Logistic regression was also the simplest model to achieve these results. 
+- <b>Overall the best model turned out to be the SGD classifier.</b> Though many models were more accurate at classifying the not depressed class than the best model, the linear models including logistic regression, linear SVM and SGD classifier performed the best at classifying the depressed class with the stochastic gradient descent classifier being the best overall. The best model was able to accurately classify 80% of the not depressed class and 71% of the depressed class.
 
-- <b>The depression class was particularly tricky to classify accurately.</b> Some models were able to accurately identify 95%+ of the true negatives but the highest percentage any models were able to achieve in capturing the true positives was 68%. That is certainly better than guessing and proves that this task is feasible, but more work will need to be done to find the best approach.
+- <b>The depression class was particularly tricky to classify accurately.</b> Pretty much every model was able to accurately identify over 80% of the true negatives. Generally the better models were at predicting the depressed class, the worse they were at predicting the not depressed class.
 
 - <b>The most influencial features of the best model are shown in the chart below.</b>
 
@@ -78,26 +78,28 @@ The way the data was preprocessed with feature engineering, filling missing valu
 
 ## Recommendations
 
-- <b>Health care professionals should prepare themselves to help patients with depression and can especially watch out for the most important features from the model.</b> Right now physicians are still handling much of the first line care for patients with depression and should prepare themselves on how to better provide care for these patients. The most meaningful features for the model that providers can watch for included:
-    - Having memory or emotional problems 
-    - Lower income and not being able to work
+- <b>Health care professionals should prepare themselves to help patients with depression and can especially watch out for the most important features from the model.</b> Right now physicians are still handling much of the first line care for patients with depression and should prepare themselves on how to better provide care for these patients. Some features that were important for the model and show a dramatic difference in those who are depressed that providers can watch for include:
+    - Patients who have memory problems
+    - Lower income, low education, and not being able to work
     - Trouble sleeping and sleeping too much or too little
 
 
-- <b>Don't use tree based models.</b> The XGBoost classifier had the best performance as the base model was actually similar in performance to the non-tree models. But once the XGBoost model was tuned, it got worse.
+- <b>Tree based models are not the best for this task and linear models performed the best.</b> The XGBoost classifier was the most curious as the base model was actually similar in performance to the non-tree models.  But once the XGBoost model was tuned, it got worse. More tuning and experimenting could perhaps yield better results. The extra trees classifier reached results most similar to the linear models. Overall, linear models were best a classifying with this data.
 
-- <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success.
+- <b>Add more data from the start.</b> Originally, a dataset with less features was used to model but performance of all the models was terrible. More features were added to the dataset and model performance improved enough to show some accuracy in classification, but having even more data from the start would set one up for greater success. The dataset could be improved with more entries as well as more features.
 
-- <b>Don't use under sampling combined with SMOTE for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but the combination used here of under sampling and SMOTE did worse overall in modeling. Using the balanced classes parameter worked better.
+- <b>Don't use SMOTENC or under sampling combined with SMOTENC for evening out the class distribution.</b> It's possible other techniques/combinations of under sampling and over sampling could help modeling, but first using just SMOTENC was tried and then under sampling combined with SMOTENC was tried and both methods performed worse than the original imbalanced dataset combined with the class weight parameter.
 
 - <b>Everyone should prepare themselves on how to handle mental health problems and to push those they know to get proper help.</b> Help to destigmatize mental health problems and encourage those you know to seek help from experienced professionals. Also get help for yourself if you find yourself in need of it. It's highly likely that everyone will find themselves in need of professional help at some point or another.
 
 
 ## Future Directions
 
-- <b>Try different models.</b> None of these models did particularly well and perhaps trying a different modeling tactic would do the trick like a neural network.
+- <b>Try different models.</b> Predicting depression is a complex and multidimensional problem so it is not surprising that it is difficult to model. Perhaps exploring more models could reveal a strategy that was just right for this task. A neural network, for example, could open up a huge range of possibilities that have not been explored in this project. The downside of neural networks is of course the lack of transparency is what features the model is using to make predictions.
 
 - <b>Add more data.</b> It is desirable to get a well performing model with as little information needed about patients as possible but after modeling options have been exhausted, more data is the best bet for improving performance. Finding the right balance between acceptable amount of error and amount of data needed to have an accurate model is definitely easier said than done.
+
+- <b>Testing more parameters.</b> The depressed class was so difficult to classify that perhaps a different scoring metric could be tried like maximizing just for recall or weighting recall more heavily in a custom F-statistic scoring object. Maybe it would be a good strategy to maximize the depressed category as much as possible and then employ strategies to improve the not depressed category as needed. There are also many combinations of parameters not tested like in the stacking and voting classifiers in particular or the XGBoost model seems like a likely place where exploration could be enlightening.
 
 
 ## References
