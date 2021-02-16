@@ -2,7 +2,7 @@
 
 **Author**: Vivienne DiFrancesco
 
-<b> A companion dashboard for exploring the data used in this project can be found [here](https://share.streamlit.io/heythatsviv/predicting-depression-using-health-care-data/main/Dashboard/depression_app.py)</b>
+<b> A companion dashboard for exploring the data used in this project can be found [here](https://share.streamlit.io/heythatsviv/predicting-depression/main/Dashboard/depression_app.py)</b>
 
 The contents of this repository is an analysis of using machine learning models to predict depression in people using health care data. This analysis is detailed in hopes of making the work accessible and replicable.
 
