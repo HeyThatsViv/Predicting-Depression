@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd 
 import plotly.express as px
 import plotly.io as pio
+from PIL import Image
 
 # Set the plotly template
 pio.templates.default = "plotly_white"
@@ -15,6 +16,10 @@ st.markdown("<h1 style='text-align: center'>Examining Depression Using Health Ca
 
 # Putting in personal details with some styling
 st.markdown("<body style='text-align: center'> <b>Created by Vivienne DiFrancesco</b><br>- viviennedifrancesco@gmail.com<br><a href=https://github.com/HeyThatsViv/Predicting-Depression>- Project repository on GitHub</a><hr style='height:2px;border-width:0;color:gray;background-color:gray'></body>", unsafe_allow_html=True)
+
+# Inserting image
+image = Image.open('stethoscope.jpg')
+st.image(image, use_column_width=True)
 
 # Project information
 st.header('Introduction')
