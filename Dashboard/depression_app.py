@@ -65,6 +65,35 @@ none_included = ['None','Gender', 'Race', 'Citizenship', 'Education Level', 'Mar
 cat_cols = none_included.copy()
 cat_cols.remove('None')
 
+# Creating a list of prescription related columns
+Rx_cols = ['Tiotropium', 'Famotidine', 'Warfarin', 'Insulin Aspart', 'Verapamil', 'Potassium Chloride', 
+'Lorazepam', 'Conjugated Estrogens', 'Gemfibrozil', 'Prednisolone', 'Drospirenone, Ethinyl Estradiol', 
+'Zolpidem', 'Finasteride', 'Ethinyl Estradiol, Levonorgestrel', 'Triamcinolone Topical', 'Raloxifene', 
+'Budesonide, Formoterol', 'Acetaminophen, Codeine', 'Hydrochlorothiazide, Lisinopril', 'Sitagliptin', 
+'Allopurinol', 'Ropinirole', 'Ciprofloxacin', 'Levalbuterol', 'Amiodarone', 'Niacin', 'Oxycodone', 
+'Pantoprazole', 'Prednisone', 'Lansoprazole', 'Levothyroxine', 'Fluticasone Nasal', 'Timolol Ophthalmic', 
+'Nifedipine', 'Isosorbide', 'Diphenhydramine', 'Colchicine', 'Furosemide', 'Fenofibrate', 'Diazepam', 
+'Lovastatin', 'Nitroglycerin', 'Albuterol', 'Acetaminophen, Oxycodone', 'Doxazosin', 'Lisinopril', 
+'Olmesartan', 'Ipratropium', 'Pravastatin', 'Insulin Glargine', 'Gabapentin', 'Hydrochlorothiazide, Losartan', 
+'Cephalexin', 'Celecoxib', 'Simvastatin', 'Diclofenac', 'Alprazolam', 'Montelukast', 'Valsartan', 'Doxycycline', 
+'Pioglitazone', 'Clonazepam', 'Amphetamine, Dextroamphetamine', 'Ondansetron', 'Insulin Lispro', 'Naproxen', 
+'Hydrochlorothiazide, Olmesartan', 'Sumatriptan', 'Memantine', 'Fluticasone, Salmeterol', 'Digoxin', 
+'Levetiracetam', 'Hydrocodone', 'Albuterol, Ipratropium', 'Diltiazem', 'Hydrochlorothiazide', 'Glimepiride', 
+'Ethinyl Estradiol, Norethindrone', 'Benazepril', 'Meloxicam', 'Fluticasone', 'Azithromycin', 'Hydroxyzine', 
+'Spironolactone', 'Esomeprazole', 'Metformin', 'Hydralazine', 'Penicillin', 'Fexofenadine', 'Metoclopramide', 
+'Isosorbide Mononitrate', 'Temazepam', 'Tizanidine', 'Propranolol', 'Tolterodine', 'Methotrexate', 'Promethazine', 
+'Triamterene', 'Alendronate', 'Enalapril', 'Methylphenidate', 'Amoxicillin, Clavulanate', 'Docusate', 'Ibuprofen', 
+'Cyclobenzaprine', 'Tamsulosin', 'Risedronate', 'Insulin Detemir', 'Baclofen', 'Glyburide, Metformin', 'Tramadol', 
+'Acyclovir', 'Omeprazole', 'Amlodipine, Benazepril', 'Minocycline', 'Quinapril', 'Sulfamethoxazole, Trimethoprim', 
+'Ramipril', 'Irbesartan', 'Atenolol', 'Clopidogrel', 'Glipizide', 'Nitrofurantoin', 'Brimonidine Ophthalmic', 
+'Glyburide', 'Latanoprost Ophthalmic', 'Cefdinir', 'Acetaminophen, Propoxyphene', 'Metoprolol', 'Hydroxychloroquine', 
+'Amoxicillin', 'Lisdexamfetamine', 'Donepezil', 'Ethinyl Estradiol, Norgestimate', 'Terazosin', 
+'Hydrochlorothiazide, Valsartan', 'Aspirin', 'Methocarbamol', 'Atorvastatin', 'Rosuvastatin', 'Buspirone', 
+'Meclizine', 'Phenytoin', 'Mometasone Nasal', 'Ezetimibe, Simvastatin', 'Ranitidine', 'Budesonide', 'Pregabalin', 
+'Oxybutynin', 'Insulin Isophane, Insulin Regular', 'Polyethylene Glycol 3350', 'Cetirizine', 'Carvedilol', 
+'Amlodipine', 'Estradiol', 'Insulin Regular', 'Clonidine', 'Hydrochlorothiazide, Triamterene', 'Rabeprazole', 
+'Losartan', 'Ezetimibe', 'Acetaminophen, Hydrocodone', 'Beclomethasone']
+
 # Creating a dictionary of categorical feature information to display
 cat_cols_dict = {'Gender': 'Is the person male or female?', 
                  'Race': 'What race best describes the person?', 
@@ -322,3 +351,40 @@ with st.beta_expander('Look at depression in a numerical feature alone or add a 
 
 # Running the function
     st.plotly_chart(strip_plot(num_optionX2, cat_optionY))
+
+
+
+# Creating the container for the fourth plot
+with st.beta_expander('Look at depression with prescription data'):
+
+    # Creating selectbox dropdowns with the prescriptions to choose from
+    rx_option = st.selectbox('Select a prescription', Rx_cols, key='Rx')
+
+    def percentage_plot_rx(col):
+
+        # Creates a temporary dataframe to get the percentages
+        temp_df = df.groupby(f'Rx {col}')['Depression'].value_counts(normalize=True)
+        temp_df = temp_df.mul(100).rename('Percent').reset_index()
+        temp_df['Percent'] = temp_df['Percent'].round(decimals=1)
+
+        # Plot the percentages with the temporary dataframe
+        fig = px.bar(temp_df[temp_df['Depression']=='Depressed'], x=f'Rx {col}', y='Percent', color='Percent', 
+                    barmode="group", text='Percent', color_continuous_scale='geyser', title=f"Percent Depression By {col}")
+
+        # Explaination of the features displays along with the graph
+        st.markdown('**Explaination of the feature selected:**')
+        st.markdown(f'**- {col}: Percent depression by {col} prescription**')
+        return fig
+    
+    def strip_plot_rx(col):
+        fig = px.strip(df, x=f'Rx Days {col}', orientation="h", color="Depression", color_discrete_sequence=['#268d87', '#d26a3e'],
+                        title=f'Days prescribed {col} and Depression')
+
+        # Explaination of the feature to display along with the graph
+        st.markdown('**Explaination of the feature selected:**')
+        st.markdown(f'**- {col}: Days the person has been prescribed {col} medication**')
+        return fig
+
+# Running the functions
+    st.plotly_chart(percentage_plot_rx(rx_option))
+    st.plotly_chart(strip_plot_rx(rx_option))
